@@ -97,8 +97,8 @@ export default function Home({users,projects}) {
 
 </Card>
   </GridItem>
-  <GridItem pl='2' area={'main'} m="5">
-  <Box bgColor="#2D3748" p="6" color="white" borderRadius="10">
+  <GridItem pl='2' area={'main'} p="4">
+  <Box bgColor="#2D3748" p="2" color="white" borderRadius="10">
         <Heading textAlign="center" mb="5">Projects</Heading>
         <Box >
         <Grid gap="10" gridTemplateColumns='repeat(3,1fr)'>
@@ -127,7 +127,7 @@ export default function Home({users,projects}) {
 
 export async function getStaticProps(context) {
   let res1 =await fetch("https://api.github.com/users/moumita7")
-  let res2 =await fetch("https://api.github.com/search/repositories?q=user:moumita7&per_page=10&type=Repositories")
+  let res2 =await fetch("https://api.github.com/search/repositories?q=user:moumita7+fork:true&sort=updated&per_page=10&type=Repositories")
   let user=await res1.json()
   let projects=await res2.json()
 
