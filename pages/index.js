@@ -1,11 +1,9 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from '../styles/Home.module.css'
+import { Box, Button, ButtonGroup, Card, CardBody, CardFooter, Divider, Grid,Image, GridItem, Heading,  Stack, Text } from '@chakra-ui/react';
+import Link from 'next/link'
+import { StarIcon } from '@chakra-ui/icons'
 
-const inter = Inter({ subsets: ['latin'] })
-
-export default function Home() {
+export default function Home({users,projects}) {
   return (
     <>
       <Head>
@@ -14,110 +12,129 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
-        <div className={styles.description}>
-          <p>
-            Get started by editing&nbsp;
-            <code className={styles.code}>pages/index.js</code>
-          </p>
-          <div>
-            <a
-              href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              By{' '}
-              <Image
-                src="/vercel.svg"
-                alt="Vercel Logo"
-                className={styles.vercelLogo}
-                width={100}
-                height={24}
-                priority
-              />
-            </a>
-          </div>
-        </div>
+      <Grid
+  templateAreas={`
+                  "nav  main"
+                  "nav footer"`}
+  gridTemplateRows={'50px 1fr 30px'}
+  gridTemplateColumns={'300px 1fr'}
+  h='700px'
+  gap='1'
+  color='blackAlpha.700'
+  fontWeight='bold'
+  
+>
 
-        <div className={styles.center}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
-            priority
-          />
-          <div className={styles.thirteen}>
-            <Image
-              src="/thirteen.svg"
-              alt="13"
-              width={40}
-              height={31}
-              priority
-            />
-          </div>
-        </div>
+  <GridItem pl='2'  area={'nav'} >
 
-        <div className={styles.grid}>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Docs <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Find in-depth information about Next.js features and&nbsp;API.
-            </p>
-          </a>
+  <Card maxW='sm' alignItems="center" textAlign="center" ml="5" mt="5">
+  <CardBody>
+  <Box alignItems="center" textAlign="center" ml="20">
+  <Image textAlign="center" borderRadius="50" src={users.avatar_url} alt="scsa" width={100} height={100}/>
+</Box>
+    <Stack mt='6' spacing='3'>
+      <Heading size='md'>{users.name}</Heading>
+      <Text fontWeight="thin">
+        Full-stack Devoloper | JavaScript | ReactJS |HTML | CSS | CHAKRA_UI
+      </Text>
+    </Stack>
+  </CardBody>
+  <Divider />
+  <CardFooter>
+    <ButtonGroup spacing='2'>
+      <Button variant='solid' colorScheme='green' borderRadius="20">
+      <a style={{color:"black",textDecoration:"none"}} href='MoumitaDas.pdf' download="MoumitaDas.pdf">Resume</a>
+      </Button>
+      <Button variant='solid' colorScheme='blue' borderRadius="20">
+      <a href='https://github.com/Moumita7'> Follow</a>       
+      </Button>
+    </ButtonGroup>
+  </CardFooter>
+</Card>
 
-          <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Learn <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Learn about Next.js in an interactive course with&nbsp;quizzes!
-            </p>
-          </a>
+{/* second */}
+<Card maxW='sm' alignItems="center" textAlign="center" ml="5" mt="5" p="2">
+      <Grid  templateRows='repeat(2,1fr)' gridTemplateColumns='repeat(3,1fr)'  gap={1}>
+      <Text  fontWeight="medium" color="green.400" bg="blue.100" w="20" h="6">
+        REACT JS
+      </Text>
+      <Text  fontWeight="medium" color="green.400" bg="blue.100" w="20" h="6">
+        CSS
+      </Text>
+      <Text  fontWeight="medium" color="green.400" bg="blue.100" w="20" h="6">
+        HTML
+      </Text>
+      <Text  fontWeight="medium" color="green.400" bg="blue.100" w="20" h="6">
+        JS
+      </Text>
+      <Text  fontWeight="medium" color="green.400" bg="blue.100" w="20" h="6">
+        REDUX
+      </Text>
+      </Grid>
+  <Divider />
+ 
+</Card>
 
-          <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Templates <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Discover and deploy boilerplate example Next.js&nbsp;projects.
-            </p>
-          </a>
+{/* thrid */}
+<Card maxW='sm' alignItems="center" textAlign="center" ml="5" mt="5">
+  <CardBody>
+  <Box alignItems="center" textAlign="center" ml="20">
+</Box>
+    <Stack mt='6' spacing='3'>
+      <Heading size='md'>Educaton</Heading>
+      <Text fontWeight="thin">
+       1.  Masai MERN STACK
+      </Text>
+      <Text fontWeight="thin">
+       2.  MCA
+      </Text>
+      <Text fontWeight="thin">
+       2.  BCA
+      </Text>
+    </Stack>
+  </CardBody>
+  <Divider />
 
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Deploy <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Instantly deploy your Next.js site to a shareable URL
-              with&nbsp;Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
+</Card>
+  </GridItem>
+  <GridItem pl='2' area={'main'} m="5">
+  <Box bgColor="#2D3748" p="6" color="white" borderRadius="10">
+        <Heading textAlign="center" mb="5">Projects</Heading>
+        <Box >
+        <Grid gap="10" gridTemplateColumns='repeat(3,1fr)'>
+        {projects.map((el)=>(
+            <>   
+            <Box border="1px solid black" borderRadius="5" textAlign="center" p="5" mb="2">     
+             <Heading fontSize="2xl" mb="2" as="h2"><Link href={el.clone_url}>{el.name}</Link></Heading>
+             <Heading fontSize="x"  mb="2" as="h4"><StarIcon mr="2"/>{el.stargazers_count}</Heading>
+             <Heading fontSize="x" as="h4">Fork Count {el.forks_count}</Heading> 
+             <Heading fontSize="x" as="h4">Language : {el.language}</Heading> 
+
+            </Box>
+            </>
+          
+        ))}
+        </Grid>
+    </Box>
+    </Box>
+  </GridItem>
+
+</Grid>
+     
     </>
   )
+}
+
+export async function getStaticProps(context) {
+  let res1 =await fetch("https://api.github.com/users/moumita7")
+  let res2 =await fetch("https://api.github.com/search/repositories?q=user:moumita7&per_page=10&type=Repositories")
+  let user=await res1.json()
+  let projects=await res2.json()
+
+  return{
+      props:{
+          users:user,
+          projects:projects.items
+      }
+  }
 }
