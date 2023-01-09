@@ -43,7 +43,7 @@ const Projects = ({projects}) => {
 export default Projects
 
 
-export async function getStaticProps(){
+export async function getServerSideProps(){
     let res=await fetch("https://api.github.com/search/repositories?q=user:moumita7+fork:true&sort=updated&per_page=10&type=Repositories")
     let data=await res.json()
     return{
